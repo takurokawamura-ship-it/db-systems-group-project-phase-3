@@ -19,7 +19,7 @@ CREATE TABLE record(
     team_name VARCHAR(45) NOT NULL,
     yr YEAR(4),
     record VARCHAR(45),
-    PRIMARY KEY(team_name)
+    PRIMARY KEY(team_name, yr)
 );
 
 -- PLAYER(player_id, player_name, ssn, position, cntrct, jersey_number, bio, team_name)
@@ -31,7 +31,7 @@ CREATE TABLE player(
     cntrct INT,
     jersey_number DECIMAL,
     bio VARCHAR(45),
-    team_name VARCHAR(45)
+    team_name VARCHAR(45),
     PRIMARY KEY(player_id),
     FOREIGN KEY (team_name) REFERENCES team(team_name)
 );
@@ -106,7 +106,6 @@ CREATE TABLE COACHES(
     team_name VARCHAR(255),
     salary DECIMAL(10, 2),
     dob DATE,
-    team VARCHAR(255),
     role VARCHAR(255),
     hire_date DATE,
     end_date DATE
